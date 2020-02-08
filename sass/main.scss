@@ -1,0 +1,14 @@
+@import '0-tools/normalize.scss';
+
+@import '1-base/_vars.sass';
+@import '1-base/_base.sass';
+@import '1-base/_scrollbar.sass';
+
+@import '2-sections/header.sass';
+@import '2-sections/banner.sass';
+@import '2-sections/tabs.sass';
+@import '2-sections/articles.sass';
+@import '2-sections/about.sass';
+@import '2-sections/contact.sass';
+
+@import '3-layout/home.sass';

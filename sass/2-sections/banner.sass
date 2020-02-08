@@ -1,0 +1,61 @@
+@keyframes fadeY
+    0%
+        background-color: rgba(150, 150, 200, 0.8)
+        transform: translateY(0)
+    100%
+        background-color: rgba(150, 150, 200, 0.2)
+        transform: translateY(-20px)
+.banner
+    margin-top: -150px
+    height: calc( 100vh + 80px )
+    background: 
+        image: url(../images/banner/banner_01.jpg)
+        repeat: no-repeat
+        position: center
+        size: cover
+    
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    transition: all 0.3s ease-in-out
+    .empty
+        height: 20px
+
+    .welcome
+        text-align: center
+        color: white
+        margin: 0 auto
+        width: calc( 100vw - 100px )
+
+    .anmi-wrap
+        height: 20px
+        .anmiComp
+            margin: 0 auto
+            height: 20px
+            width: 200px
+            span,
+            span::before,
+            span::after
+                top: 0
+                margin: -3px 0
+                height: 3px
+                width: 100%
+                background-color: rgba(150, 150, 200, 0.8)
+                content: ""
+                display: block
+
+            span::before
+                animation-name: fadeY
+                animation-duration: 1.3s
+                animation-iteration-count: infinite
+                animation-timing-function: linear
+            span::after
+                animation-name: fadeY
+                animation-delay: 0.9s
+                animation-duration: 1.3s
+                animation-iteration-count: infinite
+                animation-timing-function: -in-out
+
+@media screen and ( max-width:  550px)
+    .banner
+        margin-top: -80px

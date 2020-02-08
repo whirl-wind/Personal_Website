@@ -1,0 +1,46 @@
+// Selection colors (easy to forget)
+::selection
+  background: $selection-color
+::-moz-selection
+  background: $selection-color
+img::selection
+  background: transparent
+img::-moz-selection
+  background: transparent
+
+body
+    overflow-x: hidden
+    overflow-y: overlay
+    -webkit-tap-highlight-color: transparent
+    background-color: $bg-color
+    .ratio
+        padding: 0
+        margin: 0 auto
+        position: relative
+        &::after
+            content: ""
+            display: block
+            padding-top: 56.25%
+        iframe
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            width: 100%
+            height: 100%
+            margin: 0
+            padding: 0
+    .ratio.bilibili
+        &::after
+            padding-top: calc(56.25% + 116px)
+
+@media screen and ( max-width: 550px )
+    body
+        .ratio .bilibili
+            &::after
+                padding-top: 56.25%
+        h2
+            font-size: 2.5rem
+                
+    

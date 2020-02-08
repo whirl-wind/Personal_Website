@@ -1,0 +1,36 @@
+.button-wrap
+    display: flex
+    background: white
+    .buttons
+        padding: 10px
+        width: 400px
+        margin: auto auto
+        display: flex
+        justify-content: space-between
+
+        .dynamicTab
+            font-size: 25px
+            outline: none
+            padding: 3px 6px
+            cursor: pointer
+            user-select: none
+            background: white
+            text-decoration: underline #112641
+            border: 2px solid white
+            transition: background 0.3s ease-in-out
+
+        .dynamicTab:hover
+            background: #f2fdff
+            border: 2px solid #e2e5ff
+        
+        .dynamicTab.is-active
+            border: 2px solid #114e68
+            text-decoration: none
+
+@media screen and ( max-width: 550px )
+    .button-wrap
+        .buttons
+            width: 300px
+            .dynamicTab
+                font-size: 20px
+    

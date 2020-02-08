@@ -1,0 +1,50 @@
+mixin thumb(pugclass, pughref, image, name, date )
+    a(class="article-thumb "+pugclass, href="./posts"+pughref)
+        .thumb-image(style='background-image:url(' + require('../images/articles/' +`${image}` + '.jpg') + ')') 
+        .article-meta
+            .name= name
+            .date= date
+            
+.article-frame
+    articles
+        .frames
+            .article-wrap.research.is-active
+                +thumb('research',
+                        '/equivalence.html',
+                        'research_05',
+                        'Equivalence',
+                        'Dec 4, 2019')
+                +thumb('research',
+                        '/laplace-compression.html',
+                        'research_04',
+                        'Laplace Compression',
+                        'Aug 29, 2019')
+                +thumb('research',
+                        '/parameterization.html',
+                        'research_03',
+                        'Parameterization',
+                        'Aug 22, 2019')
+                +thumb('research',
+                        '/image-warping.html',
+                        'research_02',
+                        'Image Warping',
+                        'Aug 16, 2019')
+                +thumb('research',
+                        '/wavelet-analysis.html',
+                        'research_01',
+                        'Wavelet Analysis',
+                        'Jul 18, 2019')
+        .frames
+            .article-wrap.design
+                +thumb('design',
+                        '/lagos-stadium-competition.html',
+                        'design_01',
+                        'Lagos-Stadium-Competition',
+                        'Dec 17, 2018')
+        .frames
+            .article-wrap.others
+                +thumb('others',
+                        '/lagos-stadium-competition.html',
+                        'design_01',
+                        'Lagos-Stadium-Competition',
+                        'Dec 17, 2018')
