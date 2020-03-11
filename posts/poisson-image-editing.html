@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="./favicon.ico" rel="icon" type="image/x-icon">
+    <title>Poisson Image Editing</title>
+  <link href="../posts.css" rel="stylesheet"></head>
+  <body>
+<div class="header"><a class="logo" href="../index.html"></a>
+  <ul>
+    <li><a href="../index.html#Work">Work</a></li>
+    <li><a href="../index.html#About">About</a></li>
+    <li><a href="#Contact">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-toggle"><span></span></div>
+</div>
+<div class="mobile-nav">
+  <ul>
+    <li><a href="../index.html#Work">Work</a></li>
+    <li><a href="../index.html#About">About</a></li>
+    <li><a href="#Contact">Contact</a></li>
+  </ul>
+</div>
+<div class="postsBanner"></div><h3 id="poisson-image-editing">Poisson Image Editing</h3>
+<p><a href="../images/articles/report_03/Report_on_PoissonImageEditing.pdf">PDF online</a></p>
+<p>This report are interested in the Poisson Image Editing Method witch achieved local changes, ones that are restricted to a region manually selected, in a seamless and effortless manner. The extent of the changes ranges from slight distortions to complete replacement by novel content. They proposed a generic machinery from which different tools for seamless editing and cloning of a selection region can be derived. The mathematical tool at the heart of the approach is the Poisson partial differential equation with Dirichlet boundary conditions which specifies the Laplacian of an unknown function over the domain of interest, along with the unknown function values over the boundary of the domain.</p>
+<p><img src="../images/articles/report_03/poisson_image_editing_01.jpg" alt="poisson_image_editing_01"></p>
+<h4 id="poisson-solution-to-guided-interpolation">Poisson solution to guided interpolation</h4>
+<p>Let open set\( \Omega \) denote the cut region, \( f \) denote the unknow function, with the boundary condition \( f^* \) at \( \partial \Omega \), \( g \) be the function of cut region. Our target is to minimize the difference between the \( \nabla f \) and \( \nabla g \) So, the fitting problem changes into the minimize the following function:</p>
+<p>$$
+\min_{f} \iint_{\Omega} {|\nabla f - \nabla g|}^2 \text{, with } {f|}<em>{\partial \Omega} = {f^*|}</em>{\partial \Omega}
+$$</p>
+<p>The minimizer must satisfy the associated Euler-Lagrange equation:</p>
+<p>$$
+\Delta f = \Delta g \text{ over $\Omega$, with } {f|}<em>{\partial \Omega} = {f^*|}</em>{\partial \Omega}
+$$</p>
+<p>This is the fundamental machinery of Poisson editing of color images: three Poisson equations of this form are solved independently in the three color channels of the chosen color space. All the results reported in this paper were obtained in the RGB color space, but similar results were obtained in CIE-Lab for instance.</p>
+<p><img src="../images/articles/report_03/poisson_image_editing_02.jpg" alt="poisson_image_editing_02"></p>
+<h4 id="discrete-poisson-solver">Discrete Poisson solver</h4>
+<p>For discrete images the problem can be discretized naturally using the underlying discrete pixel grid. Without loss of generality, we will keep the same notations for the continuous objects and their discrete counterparts. For Dirichlet boundary conditions defined on a boundary of arbitrary shape, it is best to discretize the variational problem directly, rather than the Poisson equation. The finite difference discretization of variational problem yields the following discrete, quadratic optimization problem:</p>
+<p>$$
+\min_{{f|}<em>{\Omega}} \sum</em>{p\in \Omega, q \in N_p} (f_p - f_q - v_{pq})^2 \text{, with } f_p = f^*_p \text{ for all } p \in \partial \Omega
+$$</p>
+<p>where \( N_p \) denote the set of \( p \)&#39;s 4-connected neighbors which are in \( \overline{\Omega} \), and \( v_{pq} \) is the gradient between \(p\) and \(q\). Its solution satisfies the following simultaneous linear equations:</p>
+<p>$$
+|N_p|f_p - \sum_{q \in N_p} f_q = \sum_{q \in N_p} v_{pq} \text{, } \forall p \in \Omega
+$$</p>
+<p>$$
+f_p = f^*_p \text{, } \forall p \in \partial \Omega
+$$</p>
+
+<div class="contact-wrap" id="Contact"><a class="button" href="mailto:whirlwind@mail.ustc.edu.cn"></a>
+  <div class="link">whirlwind@mail.ustc.edu.cn</div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+  <script type="text/javascript" src="../posts.bundle.js"></script></body>
+</html>
