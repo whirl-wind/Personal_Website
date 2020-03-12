@@ -30,18 +30,18 @@
 <h4 id="poisson-solution-to-guided-interpolation">Poisson solution to guided interpolation</h4>
 <p>Let open set\( \Omega \) denote the cut region, \( f \) denote the unknow function, with the boundary condition \( f^* \) at \( \partial \Omega \), \( g \) be the function of cut region. Our target is to minimize the difference between the \( \nabla f \) and \( \nabla g \) So, the fitting problem changes into the minimize the following function:</p>
 <p>$$
-\min_{f} \iint_{\Omega} {|\nabla f - \nabla g|}^2 \text{, with } {f|}<em>{\partial \Omega} = {f^*|}</em>{\partial \Omega}
+\min_{f} \iint_{\Omega} {|\nabla f - \nabla g|}^2 \text{, with } f_{\partial \Omega} = f^*_{\partial \Omega}
 $$</p>
 <p>The minimizer must satisfy the associated Euler-Lagrange equation:</p>
 <p>$$
-\Delta f = \Delta g \text{ over $\Omega$, with } {f|}<em>{\partial \Omega} = {f^*|}</em>{\partial \Omega}
+\Delta f = \Delta g \text{ over $\Omega$, with } f_{\partial \Omega} = f^*_{\partial \Omega}
 $$</p>
 <p>This is the fundamental machinery of Poisson editing of color images: three Poisson equations of this form are solved independently in the three color channels of the chosen color space. All the results reported in this paper were obtained in the RGB color space, but similar results were obtained in CIE-Lab for instance.</p>
 <p><img src="../images/articles/report_03/poisson_image_editing_02.jpg" alt="poisson_image_editing_02"></p>
 <h4 id="discrete-poisson-solver">Discrete Poisson solver</h4>
 <p>For discrete images the problem can be discretized naturally using the underlying discrete pixel grid. Without loss of generality, we will keep the same notations for the continuous objects and their discrete counterparts. For Dirichlet boundary conditions defined on a boundary of arbitrary shape, it is best to discretize the variational problem directly, rather than the Poisson equation. The finite difference discretization of variational problem yields the following discrete, quadratic optimization problem:</p>
 <p>$$
-\min_{{f|}<em>{\Omega}} \sum</em>{p\in \Omega, q \in N_p} (f_p - f_q - v_{pq})^2 \text{, with } f_p = f^*_p \text{ for all } p \in \partial \Omega
+\min_{f_{\Omega}} \sum_{p\in \Omega, q \in N_p} (f_p - f_q - v_{pq})^2 \text{, with } f_p = f^*_p \text{ for all } p \in \partial \Omega
 $$</p>
 <p>where \( N_p \) denote the set of \( p \)&#39;s 4-connected neighbors which are in \( \overline{\Omega} \), and \( v_{pq} \) is the gradient between \(p\) and \(q\). Its solution satisfies the following simultaneous linear equations:</p>
 <p>$$
